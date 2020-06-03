@@ -10,13 +10,13 @@
             </router-link>
           </div>
           <div class="hidden sm:ml-6 sm:flex">
-            <a href="https://www.keep.sh" target="_blank" class="inline-flex items-center px-1 pt-1 border-b-2 border-gray-500 text-sm font-medium leading-5 text-gray-900 focus:outline-none focus:border-gray-700 transition duration-150 ease-in-out">
+            <a href="https://www.keep.sh" target="_blank" class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
               keep.sh
             </a>
-            <router-link to="/docs/simple-qrcode" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+            <router-link to="/docs/simple-qrcode" :class="linkState('simple-qrcode')" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5  focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out">
               Simple-QrCode
             </router-link>
-            <router-link to="/docs/simple-sms" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
+            <router-link to="/docs/simple-sms" :class="linkState('simple-sms')" class="ml-8 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium leading-5  focus:outline-none focus:text-gray-700 transition duration-150 ease-in-out">
               Simple-SMS
             </router-link>
           </div>
@@ -36,14 +36,14 @@
 
     <div :class="menuIsOpen ? 'block' : 'hidden'" class="sm:hidden">
       <div class="pt-2 pb-3">
-        <a href="#" class="block pl-3 pr-4 py-2 border-l-4 border-indigo-500 text-base font-medium text-indigo-700 bg-indigo-50 focus:outline-none focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700 transition duration-150 ease-in-out">Dashboard
+        <a href="https://www.keep.sh" target="_blank" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">keep.sh
         </a>
-        <a href="#" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Team
-        </a>
-        <a href="#" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Projects
-        </a>
-        <a href="#" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">Calendar
-        </a>
+        <router-link to="/docs/simple-qrcode" :class="linkState('simple-qrcode', true)" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+        Simple-QrCode
+        </router-link>
+<router-link to="/docs/simple-sms" :class="linkState('simple-sms', true)" class="mt-1 block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+        Simple-SMS
+        </router-link>
       </div>
     </div>
   </nav>
@@ -56,12 +56,12 @@
   <div class="bg-white">
     <div class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
       <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
-        <div class="px-5 py-2">
+        <div class="px-5 py-2 hidden sm:flex">
           <a href="https://medium.com/simple-software" target="_blank" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             Blog
           </a>
         </div>
-        <div class="px-5 py-2">
+        <div class="px-5 py-2 hidden sm:flex">
           <a href="https://www.keep.sh" target="_blank" class="text-base leading-6 text-gray-500 hover:text-gray-900">
             keep.sh
           </a>
@@ -120,6 +120,19 @@ export default {
   data() {
     return {
       menuIsOpen: false,
+    }
+  },
+  methods: {
+    linkState(path, mobile = false) {
+      if (!mobile && this.$route.path.includes(path)) {
+        return 'border-indigo-500 text-gray-900 focus:border-indigo-700'
+      }
+
+      if (mobile && this.$route.path.includes(path)) {
+        return 'border-indigo-500 text-indigo-700 bg-indigo-50 focus:text-indigo-800 focus:bg-indigo-100 focus:border-indigo-700'
+      }
+
+      return 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:border-gray-300'
     }
   }
 }

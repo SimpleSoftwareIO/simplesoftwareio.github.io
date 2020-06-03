@@ -11,6 +11,12 @@ Vue.use(VueRouter)
     meta: { layout: 'full' },
     component: Home
     },
+        {
+    path: '/docs/simple-sms',
+    name: 'Simple SMS',
+    meta: { layout: 'text' },
+    component: () => import('../views/SimpleSms.vue')
+    },
     {
     path: '/docs/simple-qrcode',
     name: 'Simple QrCode',

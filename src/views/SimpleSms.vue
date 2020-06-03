@@ -5,7 +5,7 @@ export default {
     extends: BaseDoc,
     data() {
         return {
-            feed: 'https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/develop/docs/:language/README.md',
+            feed: 'https://raw.githubusercontent.com/SimpleSoftwareIO/simple-sms/develop/docs/:language/README.md',
         }
     },
 }
