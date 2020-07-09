@@ -9,7 +9,7 @@
       </header>
       <main>
         <div class="px-4 py-8 sm:px-0">
-          <div class="border border-8 border-gray-200 rounded-lg bg-white">
+          <div class="border-8 border-gray-200 rounded-lg bg-white">
             <div class="p-5">
               <router-view />
             </div>

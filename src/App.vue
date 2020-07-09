@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gray-100">
+  <div class="flex flex-col min-h-screen bg-gray-100">
     <nav class="bg-white shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -104,12 +104,12 @@
       </div>
     </nav>
 
-    <div class="py-10">
+    <main class="flex-1 py-10">
       <text-layout v-if="$route.meta.layout === 'text'" />
       <full-layout v-else />
-    </div>
+    </main>
 
-    <div class="bg-white">
+    <footer class="bg-white">
       <div class="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
         <nav class="-mx-5 -my-2 flex flex-wrap justify-center">
           <div class="px-5 py-2 hidden sm:flex">
@@ -208,7 +208,7 @@
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   </div>
 </template>
 
