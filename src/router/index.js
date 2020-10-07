@@ -11,25 +11,25 @@ Vue.use(VueRouter)
     meta: { layout: 'full' },
     component: Home
     },
-        {
+  {
     path: '/docs/simple-sms',
     name: 'Simple SMS',
     meta: { layout: 'text' },
     component: () => import('../views/SimpleSms.vue')
-    },
-    {
+  },
+  {
     path: '/docs/simple-qrcode',
-    name: 'Simple QrCode',
-    meta: { layout: 'text' },
-    component: () => import('../views/SimpleQrCode.vue')
-    },
-        {
-    path: '/docs/simple-qrcode/:language',
     name: 'Simple QrCode',
     meta: { layout: 'text' },
     component: () => import('../views/SimpleQrCode.vue')
   },
   {
+    path: '/docs/simple-qrcode/:language',
+    name: 'Simple QrCode',
+    meta: { layout: 'text' },
+    component: () => import('../views/SimpleQrCode.vue')
+},
+{
     path: '/privacy-policy',
     name: 'Privacy Policy',
     meta: { layout: 'text' },
@@ -44,7 +44,7 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
