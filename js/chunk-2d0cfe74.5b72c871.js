@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0cfe74"],{6664:function(e,n,t){"use strict";t.r(n);var s,u,a=t("2295"),o={extends:a["a"],data:function(){return{feed:"https://raw.githubusercontent.com/SimpleSoftwareIO/simple-sms/develop/docs/:language/README.md"}}},c=o,l=t("2877"),d=Object(l["a"])(c,s,u,!1,null,null,null);n["default"]=d.exports}}]);
+//# sourceMappingURL=chunk-2d0cfe74.5b72c871.js.map

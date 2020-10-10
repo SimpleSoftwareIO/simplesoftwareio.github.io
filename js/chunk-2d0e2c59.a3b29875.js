@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0e2c59"],{"7fb6":function(e,n,t){"use strict";t.r(n);var o,u,a=t("2295"),c={extends:a["a"],data:function(){return{feed:"https://raw.githubusercontent.com/SimpleSoftwareIO/simple-qrcode/develop/docs/:language/README.md"}}},d=c,l=t("2877"),s=Object(l["a"])(d,o,u,!1,null,null,null);n["default"]=s.exports}}]);
+//# sourceMappingURL=chunk-2d0e2c59.a3b29875.js.map
